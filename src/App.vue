@@ -1,10 +1,8 @@
 <template>
   <div>
-    <h1>黑马头条</h1>
-    <svg class="icon" aria-hidden="true">
+    <!-- <svg class="icon" aria-hidden="true">
       <use xlink:href="#icon-dianzan"></use>
-    </svg>
-
+    </svg> -->
     <router-view></router-view>
   </div>
 </template>
