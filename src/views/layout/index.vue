@@ -30,9 +30,9 @@
       <van-tabbar-item to="/my">
         <!-- 图标插槽 -->
         <svg class="icon" aria-hidden="true" slot="icon">
-          <use xlink:href="#icon-wode1"></use>
+          <use xlink:href="#icon-wode"></use>
         </svg>
-        我的
+        {{ $store.state.user ? '我的' : '未登录' }}
       </van-tabbar-item>
     </van-tabbar>
     <!-- /标签导航栏 -->

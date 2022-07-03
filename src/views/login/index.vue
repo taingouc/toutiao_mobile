@@ -1,7 +1,10 @@
 <template>
   <div class="login_container">
     <!-- 导航栏 -->
-    <van-nav-bar title="登录" class="page-nav-bar" />
+    <van-nav-bar title="登录" class="page-nav-bar">
+      <!-- slot插槽--左侧x号图标 -->
+      <van-icon slot="left" name="cross" @click="$router.back()" />
+    </van-nav-bar>
     <!-- 登录表单 -->
     <!-- 为van-form添加ref引用,后续可以通过ref获取到Form实例并调用实例方法 -->
     <van-form ref="loginForm" @submit="onSubmit">
@@ -96,7 +99,7 @@ export default {
     // 点击登录功能
     async onSubmit(values) {
       // values填写的表单数据
-      console.log(values)
+      // console.log(values)
       // 1.获取表单数据
       const user = this.user
       // 2.表单验证，在组件中必须通过this.$toast调用Vant组件库中的toast组件
@@ -114,6 +117,7 @@ export default {
         // 4.2调用this.$toast.success提示登录成功的消息，注意：任何一个新的toast被调用，都会停止上一个toast
         this.$toast.success('登录成功')
         // 4.3路由跳转
+        this.$router.push('/my')
       } catch (err) {
         // 登录失败
         if (err.response.status === 400) {
