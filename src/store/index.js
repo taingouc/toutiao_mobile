@@ -5,7 +5,7 @@ import { getItem, setItem } from '@/utils/storage'
 
 Vue.use(Vuex)
 // 定义本地存储TOKEN_KEY存放登录用户信息
-const TOKEN_KEY = ''
+const TOKEN_KEY = null
 
 export default new Vuex.Store({
   state: {

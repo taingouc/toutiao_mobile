@@ -98,8 +98,8 @@ export default {
         // 获取用户信息成功，放到userInfo中
         this.userInfo = data.data
       } catch (err) {
-        // 失败提示错误消息
-        this.$toast('获取数据失败,请稍后重试！')
+        // 修改user,展示未登录页面
+        this.$store.commit('setUser', null)
       }
     }
   },

@@ -10,6 +10,7 @@ import Vant from 'vant'
 import 'vant/lib/index.css'
 // 动态设置rem基准值
 import 'amfe-flexible'
+import '@/utils/day'
 
 Vue.use(Vant)
 Vue.config.productionTip = false

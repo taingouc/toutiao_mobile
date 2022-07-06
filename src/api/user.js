@@ -38,3 +38,37 @@ export const getArticles = (params) => {
     params
   })
 }
+// 获取所有频道列表
+export const getAllChannels = () => {
+  return request({
+    method: 'GET',
+    url: '/v1_0/channels'
+  })
+}
+// 批量修改用户频道列表
+export const addUserChannel = (channel) => {
+  return request({
+    method: 'PATCH',
+    url: '/v1_0/user/channels',
+    data: {
+      channels: [channel]
+    }
+  })
+}
+// 删除用户指定频道
+export const deleteUserChannel = (channelID) => {
+  return request({
+    method: 'DELETE',
+    url: `/v1_0/user/channels/${channelID}`
+  })
+}
+// 获取联想建议
+export const getSearchSuggestions = (q) => {
+  return request({
+    method: 'GET',
+    url: '/v1_0/suggestion',
+    params: {
+      q
+    }
+  })
+}
