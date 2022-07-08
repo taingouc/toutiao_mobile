@@ -1,7 +1,7 @@
 <template>
   <!-- 使用vant组件库中cell单元格组件构建文章item结构 -->
   <van-cell-group class="article-item">
-    <van-cell>
+    <van-cell :to="{ name: 'article', params: { articleId: article.art_id } }">
       <!-- 通过插槽自定义组件内容 -->
       <!-- 自定义左侧 title 的内容 vant内置样式van-multi-ellipsis--l2 最多显示两行 -->
       <div slot="title" class="title van-multi-ellipsis--l2">{{ article.title }}</div>

@@ -2,13 +2,13 @@
   <!-- 顶部搜索压面 -->
   <div class="search-container">
     <!-- 搜索栏 -->
-    <form action="/">
+    <form action="/" class="search-form">
       <van-search v-model="searchText" show-action placeholder="请输入搜索关键词" @search="onSearch" @cancel="onCancel" background="#3296fa" shape="round" @focus="isResultShow = false" />
     </form>
     <!-- 搜索结果组件 -->
-    <search-result v-if="isResultShow"></search-result>
+    <search-result v-if="isResultShow" :searchText="searchText"></search-result>
     <!-- 联想建议组件 -->
-    <search-suggestions v-else-if="searchText" :searchText="searchText"></search-suggestions>
+    <search-suggestions v-else-if="searchText" :searchText="searchText" @search="onSearch"></search-suggestions>
     <!-- 搜索历史组件 -->
     <search-history v-else></search-history>
   </div>
@@ -30,6 +30,7 @@ export default {
   },
   methods: {
     onSearch(val) {
+      this.searchText = val
       this.isResultShow = true
     },
     // 点击取消返回
@@ -43,8 +44,16 @@ export default {
 
 <style lang="less" scoped>
 .search-container {
+  padding-top: 108px;
   .van-search__action {
     color: #fff;
+  }
+  .search-form {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
   }
 }
 </style>

@@ -2,10 +2,20 @@
 import axios from 'axios'
 // 访问Vuex中的store.state数据，引入这个模块
 import store from '@/store'
-
+// import JSONBig from 'json-bigint'
 const request = axios.create({
   // 接口的基础路径
   baseURL: 'http://toutiao.itheima.net'
+  // 自定义后端返回的原始数据
+  // transformRequest: [
+  //   function (data) {
+  //     try {
+  //       return JSONBig.parse(data)
+  //     } catch (err) {
+  //       return data
+  //     }
+  //   }
+  // ]
 })
 // 请求拦截器，为每一次请求添加token数据,
 request.interceptors.request.use(

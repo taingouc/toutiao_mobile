@@ -72,3 +72,38 @@ export const getSearchSuggestions = (q) => {
     }
   })
 }
+// 获取搜索结果
+export const getSearchResult = (params) => {
+  return request({
+    method: 'GET',
+    url: '/v1_0/search',
+    params
+  })
+}
+// 获取文章详情
+export const getArticleById = (articleId) => {
+  return request({
+    method: 'GET',
+    url: `/v1_0/articles/${articleId}`
+  })
+}
+// 文章详情页面关注用户
+export const addFollow = (target) => {
+  return request({
+    method: 'POST',
+    url: '/v1_0/user/followings',
+    data: {
+      target
+    }
+  })
+}
+// 文章详情页面取消关注用户
+export const deleteFollow = (id) => {
+  return request({
+    method: 'DELETE',
+    url: `/v1_0/user/followings/${id}`,
+    data: {
+      id
+    }
+  })
+}
