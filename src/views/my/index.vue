@@ -17,7 +17,7 @@
         <!-- 右侧区域 -->
         <div class="right">
           <!-- 编辑用户资料 -->
-          <van-button size="mini" round>编辑资料</van-button>
+          <van-button size="mini" round @click="$router.push('/user/profile')">编辑资料</van-button>
         </div>
       </div>
       <!-- 下：用户关注粉丝区域 -->

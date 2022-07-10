@@ -13,6 +13,10 @@ export default {
       Loading: false // 关注按钮loading效果
     }
   },
+  model: {
+    prop: 'isFollowed',
+    event: 'update-isFollowed'
+  },
   props: {
     isFollowed: {
       type: Boolean,
@@ -39,13 +43,15 @@ export default {
         // 关闭关注按钮loading状态
         this.Loading = false
         // 修改状态，重新渲染页面
-        this.$emit('update-is_followed', !this.isFollowed)
+        this.$emit('update-isFollowed', !this.isFollowed)
       } catch (err) {
         // 不允许关注自己
         if (err.response && err.response.status === 400) {
           this.$toast('你不能关注自己')
         }
         this.$toast('操作失败，请重试')
+        // 关闭关注按钮loading状态
+        this.Loading = false
       }
     }
   }

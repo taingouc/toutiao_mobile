@@ -101,9 +101,87 @@ export const addFollow = (target) => {
 export const deleteFollow = (id) => {
   return request({
     method: 'DELETE',
-    url: `/v1_0/user/followings/${id}`,
+    url: `/v1_0/user/followings/${id}`
+  })
+}
+// 收藏文章
+export const addCollect = (target) => {
+  return request({
+    method: 'POST',
+    url: '/v1_0/article/collections',
     data: {
-      id
+      target
     }
+  })
+}
+// 取消收藏文章
+export const deleteCollect = (target) => {
+  return request({
+    method: 'DELETE',
+    url: `/v1_0/article/collections/${target}`
+  })
+}
+// 点赞文章
+export const addLike = (target) => {
+  return request({
+    method: 'POST',
+    url: '/v1_0/article/likings',
+    data: {
+      target
+    }
+  })
+}
+// 取消点赞文章
+export const deleteLike = (target) => {
+  return request({
+    method: 'DELETE',
+    url: `/v1_0/article/likings/${target}`
+  })
+}
+// 获取文章评论列表
+export const getComment = (params) => {
+  return request({
+    method: 'GET',
+    url: '/v1_0/comments',
+    params
+  })
+}
+/**
+ * 对评论或评论回复点赞
+ */
+export function addCommentLike(commentId) {
+  return request({
+    method: 'POST',
+    url: '/v1_0/comment/likings',
+    data: {
+      target: commentId
+    }
+  })
+}
+
+/**
+ * 取消对评论或评论回复点赞
+ */
+export function deleteCommentLike(commentId) {
+  return request({
+    method: 'DELETE',
+    url: `v1_0/comment/likings/${commentId}`
+  })
+}
+/**
+ * 添加评论或评论回复
+ */
+export function addComment(data) {
+  return request({
+    method: 'POST',
+    url: '/v1_0/comments',
+    data
+  })
+}
+// 获取当前登录用户的个人资料
+export function getUserProfile() {
+  return request({
+    method: 'GET',
+    url: '/v1_0/user/profile'
   })
 }
