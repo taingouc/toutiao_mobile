@@ -10,7 +10,7 @@
           <van-image class="avater" round fit="cover" :src="userInfo.photo" />
           <!-- 用户昵称 -->
           <div class="info">
-            <span>小柯 kebig</span>
+            <span>{{ userInfo.name }}</span>
             <span>前端开发工程师</span>
           </div>
         </div>

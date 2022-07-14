@@ -185,3 +185,19 @@ export function getUserProfile() {
     url: '/v1_0/user/profile'
   })
 }
+// 更新用户资料
+export function updateUserProfile(data) {
+  return request({
+    method: 'PATCH',
+    url: '/v1_0/user/profile',
+    data
+  })
+}
+// 更新用户头像资料
+export function updateUserPhoto(data) {
+  return request({
+    method: 'PATCH',
+    url: '/v1_0/user/photo',
+    data
+  })
+}

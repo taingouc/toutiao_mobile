@@ -109,4 +109,7 @@ export default {
 .liked {
   color: #e5645f;
 }
+.van-button--normal {
+  padding: unset;
+}
 </style>
